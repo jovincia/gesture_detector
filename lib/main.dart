@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gesture_detector/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,13 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         canvasColor: MainColors.brownCoffeeMilk,
-       // colorScheme: ColorScheme.fromSeed(color: MainColors.brownCoffeeMilk),
-        //useMaterial3: true,
       ),
-      home: const MyHomePage(
-        
-        title: 'Ikiiiii >>>>>>>>>>>>'
-        ),
+      home: const MyHomePage(title: 'Ikiiiii >>>>>>>>>>>>'),
     );
   }
 }
@@ -36,11 +32,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int counter = 0;
+  int currentFontIndex = 0;
+
+  final List<TextStyle> fontsApply = [
+    GoogleFonts.calligraffitti(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.dancingScript(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.pacifico(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.caveat(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.shadowsIntoLight(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.badScript(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.nothingYouCouldDo(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.farsan(textStyle: const TextStyle(fontSize: 18)),
+  ];
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      counter++;
+      // changer la police à chaque clic
+      currentFontIndex = (currentFontIndex + 1) % fontsApply.length;
     });
   }
 
@@ -48,29 +58,33 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: MainColors.brownNude,
-        title: Text(widget.title,textAlign: TextAlign.justify,),
+        title: Center(
+          child: Text(
+            style: GoogleFonts.calligraffitti(
+              fontSize: 25,
+            ),
+            widget.title,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text('Iki', style: fontsApply[currentFontIndex]),
+            Text('$counter', style: fontsApply[currentFontIndex]),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: MainColors.brownCoffeeMilk,
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.book),
+        tooltip: 'Add new text',
+        child: const Icon(Icons.text_increase, color: Colors.white),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
