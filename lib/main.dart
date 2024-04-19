@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gesture_detector/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       counter++;
       // changer la police à chaque clic
-      currentFontIndex = (currentFontIndex + 1) % fontsApply.length;
+      //currentFontIndex = (currentFontIndex + 1) % fontsApply.length;
+      currentFontIndex = Random().nextInt(fontsApply.length);
     });
   }
 
@@ -81,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: MainColors.brownCoffeeMilk,
         onPressed: _incrementCounter,
-        tooltip: 'Add new text',
+        tooltip: 'Add new font',
         child: const Icon(Icons.text_increase, color: Colors.white),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
