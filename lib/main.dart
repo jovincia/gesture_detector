@@ -33,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<Widget> textWidgets = [];
   int counter = 0;
   int currentFontIndex = 0;
 
@@ -49,10 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      counter++;
-      // changer la police à chaque clic
-      //currentFontIndex = (currentFontIndex + 1) % fontsApply.length;
-      currentFontIndex = Random().nextInt(fontsApply.length);
+      // Ajouter un nouveau widget Text à la liste avec une police aléatoire
+      textWidgets.add(
+        Text('Iki', style: fontsApply[Random().nextInt(fontsApply.length)]),
+      );
     });
   }
 
