@@ -3,6 +3,8 @@ import 'package:gesture_detector/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
+import 'package:marquee/marquee.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,13 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        canvasColor: MainColors.brown,
+      home: MyHomePage(
+        title: 'Ikiiiii ♥♥♥♥♥♥♥',
       ),
-      home: const MyHomePage(title: 'Ikiiiii >>>>>>>>>>>>'),
     );
   }
 }
@@ -35,8 +35,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> textWidgets = [];
   final Random random = Random();
-  //int counter = 0;
-  //int currentFontIndex = 0;
+  int counter = 0;
+
 
   final List<TextStyle> fontsApply = [
     GoogleFonts.calligraffitti(
@@ -88,11 +88,19 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         backgroundColor: MainColors.brownNude,
         title: Center(
-          child: Text(
-            style: GoogleFonts.calligraffitti(
-              fontSize: 25,
-            ),
-            widget.title,
+          child: Marquee(
+            text: "Ikiiiii ♥♥♥♥♥♥♥",
+            style: GoogleFonts.calligraffitti(fontSize: 25),
+            scrollAxis: Axis.horizontal,
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            blankSpace: 3.0,
+            velocity: 10.0,
+            pauseAfterRound: const Duration(seconds: 1),
+            startPadding: 10.0,
+            accelerationDuration: const Duration(seconds: 1),
+            accelerationCurve: Curves.linear,
+            decelerationDuration: const Duration(milliseconds: 500),
+            decelerationCurve: Curves.easeOut,
           ),
         ),
       ),
