@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(
-        title: 'Ikiiiii ♥♥♥♥♥♥♥',
+        title:
+            'Ikiiiii ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥',
       ),
     );
   }
@@ -36,7 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> textWidgets = [];
   final Random random = Random();
   int counter = 0;
-
 
   final List<TextStyle> fontsApply = [
     GoogleFonts.calligraffitti(
@@ -85,19 +85,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        // centerTitle: true,
         backgroundColor: MainColors.brownNude,
-        title: Center(
+        title: Container(
+          height: 30,
           child: Marquee(
-            text: "Ikiiiii ♥♥♥♥♥♥♥",
-            style: GoogleFonts.calligraffitti(fontSize: 25),
+            text: "Ikiiiii ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥",
+            style: GoogleFonts.calligraffitti(
+              fontSize: 25,
+              color:MainColors.white
+            ),
             scrollAxis: Axis.horizontal,
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            blankSpace: 3.0,
-            velocity: 10.0,
+            blankSpace: 20.0,
+            velocity: 20.0,
             pauseAfterRound: const Duration(seconds: 1),
             startPadding: 10.0,
-            accelerationDuration: const Duration(seconds: 1),
+            accelerationDuration: const Duration(seconds: 20),
             accelerationCurve: Curves.linear,
             decelerationDuration: const Duration(milliseconds: 500),
             decelerationCurve: Curves.easeOut,
