@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        canvasColor: MainColors.brownCoffeeMilk,
+        canvasColor: MainColors.brown,
       ),
       home: const MyHomePage(title: 'Ikiiiii >>>>>>>>>>>>'),
     );
@@ -34,26 +34,50 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> textWidgets = [];
-  int counter = 0;
-  int currentFontIndex = 0;
+  final Random random = Random();
+  //int counter = 0;
+  //int currentFontIndex = 0;
 
   final List<TextStyle> fontsApply = [
-    GoogleFonts.calligraffitti(textStyle: const TextStyle(fontSize: 18)),
-    GoogleFonts.dancingScript(textStyle: const TextStyle(fontSize: 18)),
-    GoogleFonts.pacifico(textStyle: const TextStyle(fontSize: 18)),
-    GoogleFonts.caveat(textStyle: const TextStyle(fontSize: 18)),
-    GoogleFonts.shadowsIntoLight(textStyle: const TextStyle(fontSize: 18)),
-    GoogleFonts.badScript(textStyle: const TextStyle(fontSize: 18)),
-    GoogleFonts.nothingYouCouldDo(textStyle: const TextStyle(fontSize: 18)),
-    GoogleFonts.farsan(textStyle: const TextStyle(fontSize: 18)),
+    GoogleFonts.calligraffitti(
+        textStyle: TextStyle(fontSize: 50, color: MainColors.brown1)),
+    GoogleFonts.dancingScript(
+        textStyle: TextStyle(fontSize: 45, color: MainColors.brown)),
+    GoogleFonts.pacifico(
+        textStyle: TextStyle(fontSize: 35, color: MainColors.brownCoffeeMilk)),
+    GoogleFonts.caveat(
+        textStyle: TextStyle(fontSize: 45, color: MainColors.brown1)),
+    GoogleFonts.shadowsIntoLight(
+        textStyle: TextStyle(fontSize: 30, color: MainColors.brownCoffeeMilk)),
+    GoogleFonts.badScript(
+        textStyle: TextStyle(fontSize: 30, color: MainColors.brownNude)),
+    GoogleFonts.nothingYouCouldDo(
+        textStyle: TextStyle(fontSize: 40, color: MainColors.brownCoffeeMilk)),
+    GoogleFonts.farsan(
+        textStyle: TextStyle(fontSize: 50, color: MainColors.brown1)),
   ];
 
   void _incrementCounter() {
     setState(() {
-      // Ajouter un nouveau widget Text à la liste avec une police aléatoire
+      double top =
+          random.nextDouble() * (MediaQuery.of(context).size.height - 50);
+      double left =
+          random.nextDouble() * (MediaQuery.of(context).size.width - 50);
+
       textWidgets.add(
-        Text('Iki', style: fontsApply[Random().nextInt(fontsApply.length)]),
+        Positioned(
+          top: top,
+          left: left,
+          child: Text(
+            'Iki',
+            style: fontsApply[Random().nextInt(fontsApply.length)],
+          ),
+        ),
       );
+
+      /*  textWidgets.add(
+        Text('Iki', style: fontsApply[Random().nextInt(fontsApply.length)]),
+      ); */
     });
   }
 
@@ -72,14 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Iki', style: fontsApply[currentFontIndex]),
-            Text('$counter', style: fontsApply[currentFontIndex]),
-          ],
-        ),
+      body: Stack(
+        children: textWidgets,
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: MainColors.brownCoffeeMilk,
