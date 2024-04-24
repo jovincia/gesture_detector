@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // centerTitle: true,
         backgroundColor: MainColors.brownNude,
-        title: Container(
+        title: SizedBox(
           height: 30,
           child: Marquee(
             text: "Ikiiiii ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥",
