@@ -1,9 +1,9 @@
 import "package:flutter/material.dart";
+import 'package:flutter/widgets.dart';
 import 'package:gesture_detector/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 import 'package:marquee/marquee.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -73,9 +73,7 @@ class _HomePageState extends State<HomePage> {
           child: Marquee(
             text: "Ikiiiii ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥",
             style: GoogleFonts.calligraffitti(
-              fontSize: 25,
-              color:MainColors.white
-            ),
+                fontSize: 25, color: MainColors.white),
             scrollAxis: Axis.horizontal,
             blankSpace: 20.0,
             velocity: 20.0,
@@ -89,16 +87,35 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Stack(
-        children: textWidgets,
+        children:textWidgets
+
+         
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: MainColors.brownCoffeeMilk,
-        onPressed: _incrementCounter,
-        tooltip: 'Add new font',
-        child: const Icon(Icons.text_increase, color: Colors.white),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            backgroundColor: MainColors.brownCoffeeMilk,
+            onPressed: _incrementCounter,
+            tooltip: 'Add new font',
+            
+            child: 
+          
+            const Icon(
+              Icons.text_increase, color: Colors.white
+              ),
+          ),
+          Text("Made By Dani",
+          style: GoogleFonts.alegreya(
+            color:MainColors.brown1,
+            fontSize:24,
+            
+
+          ),),
+        ],
       ),
+   
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
-
