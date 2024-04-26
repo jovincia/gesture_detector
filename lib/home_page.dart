@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
           FloatingActionButton(
             backgroundColor: MainColors.brownCoffeeMilk,
             onPressed: _incrementCounter,
-            tooltip: 'Add new font',
+            tooltip: 'Another one',
             
             child: 
           
@@ -105,13 +105,16 @@ class _HomePageState extends State<HomePage> {
               Icons.text_increase, color: Colors.white
               ),
           ),
-          Text("Made By Dani",
-          style: GoogleFonts.alegreya(
-            color:MainColors.brown1,
-            fontSize:24,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Made By Dani",
+            style: GoogleFonts.amiko (
+              color:MainColors.brown1,
+              fontSize:24,
+              
             
-
-          ),),
+            ),),
+          ),
         ],
       ),
    
