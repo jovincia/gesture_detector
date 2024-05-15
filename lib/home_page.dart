@@ -1,9 +1,9 @@
 import "package:flutter/material.dart";
-import 'package:flutter/widgets.dart';
 import 'package:gesture_detector/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 import 'package:marquee/marquee.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -55,15 +55,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       );
-
-      /*  textWidgets.add(
-        Text('Iki', style: fontsApply[Random().nextInt(fontsApply.length)]),
-      ); */
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
         // centerTitle: true,
@@ -86,11 +82,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Stack(
-        children:textWidgets
-
-         
-      ),
+      body: Stack(children: textWidgets),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -98,26 +90,21 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: MainColors.brownCoffeeMilk,
             onPressed: _incrementCounter,
             tooltip: 'Another one',
-            
-            child: 
-          
-            const Icon(
-              Icons.text_increase, color: Colors.white
-              ),
+            child: const Icon(Icons.text_increase, color: Colors.white),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Made By Dani",
-            style: GoogleFonts.amiko (
-              color:MainColors.brown1,
-              fontSize:24,
-              
-            
-            ),),
+            child: Text(
+              "Made By Dani",
+              style: GoogleFonts.zeyada(
+                color: MainColors.brown1,
+                fontSize: 24,
+                
+              ),
+            ),
           ),
         ],
       ),
-   
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
