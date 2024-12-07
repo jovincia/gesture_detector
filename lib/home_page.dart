@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 import 'package:marquee/marquee.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
 
@@ -36,6 +35,8 @@ class _HomePageState extends State<HomePage> {
         textStyle: TextStyle(fontSize: 40, color: MainColors.brownCoffeeMilk)),
     GoogleFonts.farsan(
         textStyle: TextStyle(fontSize: 50, color: MainColors.brown1)),
+    GoogleFonts.zeyada(
+        textStyle: TextStyle(fontSize: 50, color: MainColors.brown1)),
   ];
 
   void _incrementCounter() {
@@ -59,7 +60,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // centerTitle: true,
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
         title: SizedBox(
           height: 30,
           child: Marquee(
-            text: "Ikiiiii ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥",
+            text: "Ikiiii ♥♥♥♥♥♥♥♥♥",
             style: GoogleFonts.calligraffitti(
                 fontSize: 25, color: MainColors.white),
             scrollAxis: Axis.horizontal,
@@ -89,17 +90,16 @@ class _HomePageState extends State<HomePage> {
           FloatingActionButton(
             backgroundColor: MainColors.brownCoffeeMilk,
             onPressed: _incrementCounter,
-            tooltip: 'Another one',
+            tooltip: 'This is a new text entering...',
             child: const Icon(Icons.text_increase, color: Colors.white),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               "Made By Dani",
-              style: GoogleFonts.zeyada(
+              style: GoogleFonts.calligraffitti(
                 color: MainColors.brown1,
                 fontSize: 24,
-                
               ),
             ),
           ),
